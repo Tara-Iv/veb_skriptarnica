@@ -2,25 +2,34 @@ import React from 'react'
 import {Navbar, Container, Nav } from 'react-bootstrap'
 import {FaShoppingCart, FaUser } from 'react-icons/fa'
 import logo from '../assets/logo.png'
+import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
         <header>
             <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
                 <Container>
-                    <Navbar.Brand href="/">
+                    <LinkContainer to="/">
+                    <Navbar.Brand>
                     <img src={logo} alt="FTN Skriptarnica Logo" width="30" height="30" className="d-inline-block align-top me-2" />
                     <span className="fw-bold">Skriptarnica </span>
                     Fakultet tehnickih nauka u Novom Sadu</Navbar.Brand>
+                    </LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                        <Nav.Link href="/cart">
+                            <LinkContainer to="/cart">
+                        <Nav.Link >
                         <FaShoppingCart />Korpa
                         </Nav.Link>
-                        <Nav.Link href="/login">
+                        </LinkContainer>
+
+                        <LinkContainer to="/login">
+                        <Nav.Link>
                             <FaUser /> Prijava
                         </Nav.Link>
+                        </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
